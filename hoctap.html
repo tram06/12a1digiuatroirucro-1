@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Học tập</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: sans-serif;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: rgb(179, 200, 207);
+            /* Màu xanh nhạt cho tiêu đề */
+            font-weight: bold;
+        }
+
+        .content {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            font-family: AvertaRegular;
+        }
+
+        .datetime {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            font-family: AvertaBold;
+        }
+
+        .object {
+            width: 90px;
+            height: 130px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .object-description {
+            font-size: 16px;
+            font-weight: bolder;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Thêm style cho phần ảnh */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Chia làm 2 cột */
+            gap: 16px;
+            /* Khoảng cách giữa các cột và hàng */
+            margin-top: 20px;
+            /* Khoảng cách từ chữ giới thiệu đến ảnh */
+        }
+
+        .image-column {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch; /* Kéo dài các item để lấp đầy container */
+            height: 100%; /* Chiều cao của cột */
+        }
+
+        .image-wrapper {
+            margin-bottom: 25px;
+            /* Khoảng cách giữa ảnh và chữ */
+            height: 100%; /* Chiều cao của wrapper */
+        }
+
+        .image-wrapper img {
+            object-fit: cover; /* Đảm bảo ảnh lấp đầy khung */
+            height: 100%;
+            width: 100%;
+        }
+
+        .image-caption {
+            font-size: 0.8em;
+            /* Chữ nhỏ hơn */
+            text-align: center;
+            color: #555;
+            /* Màu chữ nhạt */
+        }
+        footer {
+        border: none !important; /* Sử dụng !important để đảm bảo ghi đè các style khác */
+    }
+
+    </style>
+    <link id="favicon" rel="icon"
+        href="https://cdn.glitch.global/d06aa12c-e99e-4369-97e4-7a9bb58fd8b2/4b570c38-c487-4af3-bcbc-5b4804a69e51.image.png?v=1740298260328"
+        type="image/x-icon" />
+
+
+</head>
+
+<body class="font-[Montserrat] bg-[rgb(241,240,232)] ">
+    <header class="bg-[rgb(179,200,207)] sticky top-0 z-50 text-black">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="https://cdn.glitch.global/65d334ea-e4d5-4b17-9e20-0579fdf35806/fd45a0f5-591d-48af-ba0a-640b506174c6.image.png?v=1741180858240"
+                        class="h-12 w-auto" />
+                        <span class="ml-3 text-2xl font-bold " 
+                        ><a href="12a1digiuatroirucro.html" > 12A1 Đi giữa trời rực rỡ</a></span >
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                      <a href="hoatdong.html" class="hover:text-white">Hoạt động</a>
+                      <a href="hoctap.html" class="hover:text-white">Học tập</a>
+                      <a href="album.html" class="hover:text-white">Album</a>
+                      <a href="demnguoc.html" class="hover:text-white">Đếm ngược ngày thi</a>
+                    </div>
+                    <div id="userSection" class="hidden items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <img id="userAvatar" src="#" alt="User Avatar" class="w-8 h-8 rounded-full" />
+                            <span id="userName" class="text-white"></span>
+                        </div>
+                        <button onclick="handleLogout()"
+                            class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600">
+                            Đăng xuất
+                        </button>
+                    </div>
+                </div>
+                <button class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-16 6h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container mx-auto px-6 py-16">
+      <div class="text-center mb-10">
+          <h1 class="text-4xl font-bold mb-4">Thành tích học tập</h1>
+          <p class="text-lg text-gray-700">
+            Tuy là những "thánh quậy" có tiếng, nhưng lớp chúng mình cũng có những "ngôi sao" học tập vô cùng sáng nha!
+          </p>
+      </div>
+
+      <div class="image-grid">
+          <div class="image-column">
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/472686823_583942491166571_3123488506027181307_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGoBZpzjMh9INHNNGIsGT6or1osdiyWH4GvWix2LJYfgZ-O5d386ecH0TCNSBk3J7irTzUgas_hAX6ot7kNw_oT&_nc_ohc=X9eaSauA0BAQ7kNvwEaupnI&_nc_oc=Admk3HPi_oKzRyRnDNFUxLGb6sdfs5L1wTHZiUAhJI2t30-0-yzH_nuLm_blbhvLGdVXJEX9l2_QYPa3acODTOpN&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=TdqiEnL4vSL7KwAKqEU73Q&oh=00_AfHVdOe409oXgO7RC5V29ne9Ny7cB5Z0DkYvLWnUpo7Xlw&oe=6806E5E6"
+                      class="rounded-2xl shadow-md w-full" />
+                  <p class="image-caption">Olympic 23/3 năm học 2022-2023</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/473057664_584483504445803_22197659325701689_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGPChvvcqNOEjPS5mpI54Vi65yz237oeJrrnLPbfuh4mm7IHfbxxGM737bbSXvLTIRlCcjvyT6AMw8Gj6hH1Jp6&_nc_ohc=GKNc1D--k1kQ7kNvwGySsEq&_nc_oc=AdlVVR49_we5EENi4lY--TxCVkB_uAJzPXAia3H7bR_n8DQyRD1dwzYHUmOVxbS8gPj7MqPHGonv5l6hi4qs5CjE&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=63uj-YDzX-w38_FV8TnuWA&oh=00_AfE8ZFnxFfuCyBl99D1J0moOUT9rwhJwbG_ol4LumyOULA&oe=6806F8C3" class="rounded-2xl shadow-md w-full" />
+                  <p class="image-caption">Lớp nào đỉnh quá zậy?</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/480356394_611129858447834_7625506004342653823_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHHy2cezay2aBVXH3mcS6_2R-zi6WiQpWVH7OLpaJClZQ3WBnRYQgGYHnZqN_3quhFvaz8nlr9HDi5YBSYSIcQT&_nc_ohc=iTW3ajbDGFkQ7kNvwGFtEFm&_nc_oc=AdmtuKoCtN2yFuy3w1rG2zYWLi7FsZnox31KQli8k9rcLxyxS24w-zNfwRX1X_XU2_X6Qc2hK8a1xfh2s8sPfdwa&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=uZgqyEEF6Pqz7dNQUIk2Ww&oh=00_AfFe6mLKclW_3eDsPX3tZ15kDoGKUz7H-nxlMctEGAbdsQ&oe=68070B46" class="rounded-2xl shadow-md w-full" />
+                  <p class="image-caption">Olympic 23/3 năm học 2023-2024</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/475992126_600777209483099_7846859967928823675_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFiUCm_FYl4DVKET1drVKNZJzou9wGv0cInOi73Aa_RwkXtebpZoLia_8YjnOCXqjh2JAuYZdQ03M-YdEt98drk&_nc_ohc=rS5Tx37riiwQ7kNvwEUsh0e&_nc_oc=AdlYvbyG44CEJ-8Br8G7T2wxvxHocGjU_rDjUH_i5UUN-o8Lqc8YLpIoobzKwd8pJTDzeHpKri8qlajESt6Ovskd&_nc_zt=23&_nc_ht=scontent.fdad1-1.fna&_nc_gid=24Tv6ji7J2z9FH_YrUWlFg&oh=00_AfGWTfqf-IvnHNxW1m2m5_4M-03ZNAUZYFJn_zJ7JAZX0Q&oe=680715AF" class="rounded-2xl shadow-md w-full" />
+                  <p class="image-caption">Còn nhiều nữa nhưng chúng mình lướt tiếp nhé!</p>
+              </div>
+          </div>
+
+          <div class="image-column">
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/475791661_600777269483093_8890950091371132894_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFqe4K13ZafdKOejjqdc6TvUII6DazZt11QgjoNrNm3XSkYyAMWtEDF5SUUSzr3Ag7e26uMglJ2y2MrzNOI9AUi&_nc_ohc=-aDJP6IbBGoQ7kNvwH48GRv&_nc_oc=AdklgRG8B27ZWrkoWtH71iLfvhtupLBagib27xe5lMk_y6CFJkvBwvtSHHJ3Q2-PT9k8pEfl7D2lhxTKe_jVVGbx&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=ZAPEyqID8dWcMJ2Bg9JKvA&oh=00_AfEc6DJbXEwW6HZa5jkL8szifLvLIfjPy6uut-ISyiHy-w&oe=6807000A" class="rounded-2xl shadow-md w-full" />
+                  <p class="image-caption">Ngày hội STEM</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/480239232_610629038497916_2160809882507684840_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEZvcb-gqZe5Pu7lefY2Lg8-GKcKsuh88L4Ypwqy6HzwrjKT5rFUeiaYQGmarD0GV3OEAXqcPe8qZDfPKBn9815&_nc_ohc=P-aHh9M8vgIQ7kNvwE6uEA5&_nc_oc=AdkqpEq4VP2W-WO2IezXFfVKP3FC70suelo5mCkqrSzfPZ0kyV67RBMwAh4Kh_CHEOsVcD89YP5Iuuq-qX_LLBME&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=kX5B2RL9ttl2Iuc__hqE-w&oh=00_AfHpOnB_mzLQWAp-iLMBGe2g23jHPBjukygex4FdLB8AUg&oe=6806F138" class="rounded-2xl shadow-md w-full" />
+                  <p class="image-caption">Kỳ thi Khóa học-Kĩ thuật cấp Tỉnh</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/486569202_3993228844282782_8938809912897850175_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHOqGvK9P4BYCYghF8gCN8HsI5arJ3JNuKwjlqsnck24pqFlfJb_eE52jUNvAv3x4jlyj_ZXtx7f1nphHNCa8HJ&_nc_ohc=uZVwTDdAazUQ7kNvwGhrr1G&_nc_oc=Adk0diC8yMSoktFz-sQ5bDrcXcHYGRETVE1Q8wR3gLe6F8NoUpxaDyl69taUknS5cH7blQbVykOAOhPl_FnvL_OZ&_nc_zt=23&_nc_ht=scontent.fdad1-1.fna&_nc_gid=j8P_UQ9czu5QxwhEQGFyRA&oh=00_AfFldJPVWiXeO3TNiGn7vxW2GK3OMF7efwK6XAj9Va1KbA&oe=6806F0FF" class="rounded-2xl shadow-md w-full" />
+                  <p class="image-caption">Chúng mình còn nhận được thưởng từ phụ huynh nữaaa</p>
+              </div>
+         </div>
+      </div>
+  </section>
+
+    <section class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold mb-12 text-center">
+                Thời khóa biểu của lớp
+            </h2>
+
+            <h1>Buổi sáng</h1>
+            <table>
+                <tr>
+                    <th></th>
+                    <th>Thứ 2</th>
+                    <th>Thứ 3</th>
+                    <th>Thứ 4</th>
+                    <th>Thứ 5</th>
+                    <th>Thứ 6</th>
+                    <th>Thứ 7</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td>Chào cờ</td>
+                    <td>Hóa học</td>
+                    <td>Văn học</td>
+                    <td>Ngoại ngữ</td>
+                    <td>Tin học</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>Vật lý</td>
+                    <td>Hóa học</td>
+                    <td>Sinh học</td>
+                    <td>Ngoại ngữ</td>
+                    <td>Tin học</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td>Văn học</td>
+                    <td>Toán</td>
+                    <td>Sinh học</td>
+                    <td>Toán</td>
+                    <td>Văn học</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td>Ngoại ngữ</td>
+                    <td>Toán</td>
+                    <td>Lịch sử</td>
+                    <td>Toán</td>
+                    <td>Sinh học</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <td></td>
+                    <td></td>
+                    <td>Vật lý</td>
+                    <td>Vật lý</td>
+                    <td>Sinh hoạt</td>
+                    <td></td>
+                </tr>
+            </table>
+
+            <h1>Buổi chiều</h1>
+            <table class="buoi-chieu">
+                <tr>
+                    <th></th>
+                    <th>Thứ 2</th>
+                    <th>Thứ 3</th>
+                    <th>Thứ 4</th>
+                    <th>Thứ 5</th>
+                    <th>Thứ 6</th>
+                    <th>Thứ 7</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <td></td>
+                    <td>HĐTN</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td></td>
+                    <td>HĐTN</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>3</th>
+                    <td></td>
+                    <td>HĐTN</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>4</th>
+                    <td></td>
+                    <td>GDQP</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <th>5</th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <body class="container mx-auto px-6 py-16">
+        <h2 class="text-3xl font-bold mb-12 text-center">Một số nguồn tài liệu của chúng tớ</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/491893532_705259761846308_6222924930059509620_n.jpg?stp=cp6_dst-jpg_p526x296_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE0-NCIIz4-Clvoe0JT8ewIeee5R6fEgNZ557lHp8SA1t0bnSYKsqQR2XYpl_Mm6Nn_weW7OdRTZ0R1BnsMtbMl&_nc_ohc=VngZ8fiesvUQ7kNvwE7CZk7&_nc_oc=AdksaipP8_BEIc4yEnee9wbpKgh75wVZLNaHWT4o8Kwww8nUokLYXi_dDNnANun5n85oyBo8YKBp1ga_qcWNy-GQ&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=wiHYbRNYImoGQw6fIq8BLA&oh=00_AfG5RxyFj_B3Gv6QIZPX3_w8cJFCxwx71V7utTYXscvJSg&oe=680809D6" 
+                class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <a class="font-bold text-xl mb-2"
+                        href="https://drive.google.com/drive/folders/1TbEudTSSstUzwJCL0LG0npcDS7Nn4P8V?usp=drive_link">
+                        Sách giáo khoa, sách bài tập, chuyên đề</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://cdn.glitch.global/019ca3ad-77c0-4ac7-bc1c-07be960f914a/8bd6c371-8141-484b-8e2e-6ccf9be42e72.image.png?v=1743603067803" alt="Event 2" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <a class="font-bold text-xl mb-2" href="https://drive.google.com/drive/folders/1niNFLFoHzdAjuDCujSYZizpZ8NkfIJJM?usp=drive_link">
+                      Sách tham khảo</a> 
+                </div>
+            </div>
+            <div class="bg-white rounded-lg overflow-hidden shadow-lg">
+                <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/485309635_635406989353454_259514421398437226_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGPHTLvWowIdGxZdIVNQcL4fidVyItNRuh-J1XIi01G6GP10Zev3zW5D43BPnLPT8jMWJOofBv0m7MLd6xdoWcl&_nc_ohc=5YUvSxQh-h4Q7kNvwG2oDpW&_nc_oc=Adl85kNHf-tAWPKFdna0agl4VXShJAY0vVy7metf_z4v8I_rxemfw_BA9pIAtUQ2-AsWuyZdmy03hvf0Y56_RqzV&_nc_zt=23&_nc_ht=scontent.fdad2-1.fna&_nc_gid=haGDE16axIwRaSCZ2jcfmQ&oh=00_AfEWBN9lFis2FjVJRtqOzj62y_YfvG9fiUvheCULqIuE0A&oe=680819F6">
+                <div class="p-6">
+                    <a class="font-bold text-xl mb-2" href="https://drive.google.com/drive/folders/1xTiT8lLjhvVyAqA5RfWNdhzVUSsjYQU7?usp=drive_link">
+                      Ôn thi tốt nghiệp</a>
+                </div>
+            </div>
+          </div>
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-bold text-xl mb-4">Vị Trí</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="https://c3phanboichau.daknong.edu.vn/"
+                  class="hover:text-[rgb(179,200,207)] transition"
+                  >Trường THPT Phan Bội Châu</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://cujut.daknong.gov.vn/"
+                  class="hover:text-[rgb(179,200,207)] transition"
+                  >Huyện Cư Jut</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://daknong.gov.vn/"
+                  class="hover:text-[rgb(179,200,207)] transition"
+                  >Tỉnh Đắk Nông</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-xl mb-4">Kết nối với chúng mình nha</h3>
+            <div class="flex space-x-4">
+              <ol>
+                <li>Email: 12a1digiuatroirucro@gmail.com</li>
+                <li>
+                  <a href="https://www.facebook.com/a1.k19luonvuituoi"
+                    >Facebook</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/12a1_digiuatroirucro/"
+                    >Instagram</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@a1k19pbcmaichay">Tiktok</a>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      let user = null;
+      try {
+        user = JSON.parse(localStorage.getItem("loggedInUser"));
+      } catch (e) {
+        console.error("Không thể đọc thông tin người dùng:", e);
+      }
+    
+      window.onload = function () {
+        const userSection = document.getElementById("userSection");
+        const authButtons = document.getElementById("authButtons");
+        const userAvatar = document.getElementById("userAvatar");
+        const userName = document.getElementById("userName");
+    
+        if (user && user.fullName) {
+          if (userSection) userSection.classList.remove("hidden");
+          if (authButtons) authButtons.classList.add("hidden");
+          if (userAvatar) userAvatar.src = user.avatar || "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+          if (userName) userName.textContent = user.fullName;
+        } else {
+          if (userSection) userSection.classList.add("hidden");
+          if (authButtons) authButtons.classList.remove("hidden");
+          window.location.href = "dangnhap.html";
+        }
+      };
+    
+      function handleLogout() {
+        localStorage.removeItem("loggedInUser");
+        location.href = "dangnhap.html";
+      }
+    </script>
+  <script type="text/javascript">
+    var totalCount = 3;
+    var num = Math.ceil(Math.random() * totalCount);
+    document.getElementById("images").src = 'images/' + "background" + num + '.png';
+</script>
+<script src="./js/app.js"></script>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+        OneSignal.init({
+            appId: "2ce708ee-b01f-400d-9936-5f887626493d",
+        });
+    });
+</script>
+</body>
+</html>

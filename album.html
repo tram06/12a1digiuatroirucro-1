@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Album</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: sans-serif;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: rgb(179, 200, 207);
+            /* Màu xanh nhạt cho tiêu đề */
+            font-weight: bold;
+        }
+
+        .content {
+            position: fixed;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            font-family: AvertaRegular;
+        }
+
+        .datetime {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 12px;
+            font-family: AvertaBold;
+        }
+
+        .object {
+            width: 90px;
+            height: 130px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .object-description {
+            font-size: 16px;
+            font-weight: bolder;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        /* Thêm style cho phần ảnh */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Chia làm 2 cột */
+            gap: 16px;
+            /* Khoảng cách giữa các cột và hàng */
+            margin-top: 20px;
+            /* Khoảng cách từ chữ giới thiệu đến ảnh */
+        }
+
+        .image-column {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch; /* Kéo dài các item để lấp đầy container */
+            height: 100%; /* Chiều cao của cột */
+        }
+
+        .image-wrapper {
+            margin-bottom: 25px;
+            /* Khoảng cách giữa ảnh và chữ */
+            height: 100%; /* Chiều cao của wrapper */
+        }
+
+        .image-wrapper img {
+            object-fit: cover; /* Đảm bảo ảnh lấp đầy khung */
+            height: 100%;
+            width: 100%;
+        }
+
+        .image-caption {
+            font-size: 0.8em;
+            /* Chữ nhỏ hơn */
+            text-align: center;
+            color: #555;
+            /* Màu chữ nhạt */
+        }
+        footer {
+        border: none !important; /* Sử dụng !important để đảm bảo ghi đè các style khác */
+    }
+
+    </style>
+    <link id="favicon" rel="icon"
+        href="https://cdn.glitch.global/d06aa12c-e99e-4369-97e4-7a9bb58fd8b2/4b570c38-c487-4af3-bcbc-5b4804a69e51.image.png?v=1740298260328"
+        type="image/x-icon" />
+
+
+</head>
+
+<body class="font-[Montserrat] bg-[rgb(241,240,232)] ">
+    <header class="bg-[rgb(179,200,207)] sticky top-0 z-50 text-black">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="https://cdn.glitch.global/65d334ea-e4d5-4b17-9e20-0579fdf35806/fd45a0f5-591d-48af-ba0a-640b506174c6.image.png?v=1741180858240"
+                        class="h-12 w-auto" />
+                        <span class="ml-3 text-2xl font-bold " 
+                        ><a href="12a1digiuatroirucro.html" > 12A1 Đi giữa trời rực rỡ</a></span >
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                      <a href="hoatdong.html" class="hover:text-white">Hoạt động</a>
+                      <a href="hoctap.html" class="hover:text-white">Học tập</a>
+                      <a href="album.html" class="hover:text-white">Album</a>
+                      <a href="demnguoc.html" class="hover:text-white">Đếm ngược ngày thi</a>
+                    </div>
+                    <div id="userSection" class="hidden items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <img id="userAvatar" src="#" alt="User Avatar" class="w-8 h-8 rounded-full" />
+                            <span id="userName" class="text-white"></span>
+                        </div>
+                        <button onclick="handleLogout()"
+                            class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600">
+                            Đăng xuất
+                        </button>
+                    </div>
+                </div>
+                <button class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-16 6h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <section class="container mx-auto px-6 py-16">
+
+      <h1 class="text-5xl font-bold mb-6">Chào mừng đến với kho ảnh của 12A1!</h1>
+      <p class="text-xl mb-8">
+        Đây là nơi chúng mình lưu giữ những tấm hình xuyên suôt 3 năm vừa qua~ </p>
+
+</section>
+
+
+      <section class="container mx-auto px-6 py-16">
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-bold mb-4">Những tấm hình cùng thầy cô</h1>
+        </div>
+    
+        <div class="image-grid">
+            <div class="image-column">
+                <div class="image-wrapper">
+                    <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/469648584_560667563494064_254903969873255751_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEomPKnHJfXlF2NdCj5amneCDiROstSfvUIOJE6y1J-9Wjt6O5Pwt0GWbQKQvNxTc2n41-l5HO7pE3rx3JEWFQw&_nc_ohc=CHL7k9nOYgQQ7kNvwGwNnlu&_nc_oc=AdmEtmaulrAqtiDIYxNpQDUroChG4MW2vWgcE1XP1joF_Kat6ftS_TRxemd0I9UcJHOwKMF-w9FzRHc1npAMmkJN&_nc_zt=23&_nc_ht=scontent.fdad1-2.fna&_nc_gid=D9MOygA6wqe2sc2P1uCh4Q&oh=00_AfFQ4K9KUDOR4uzYvMIVQmYPIb1VNLvO51yvuGBkOb1OaA&oe=6807D06D"
+                        class="rounded-2xl shadow-md w-full" />
+            
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/469520430_560667540160733_3398622128185010097_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEDFfuJtKMscXuPI3e9kp6Z9AViRR0LfE30BWJFHQt8TfNMxN-_9qfi_aMm7Y-Xwhe6A-JDRTgO8TFBntJXeAZb&_nc_ohc=QttvrAxwy4sQ7kNvwF3VMfY&_nc_oc=AdmyIE_vQXNS1KG_VhbRn7U-Db_Gd6ePce4Oxu-cvE8h9MycDlP0bLaMxWG1SVz9UjSfniL-epeYivkmb_zl8LyR&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=_RG-wAwe-asf3Gz_RIWpVQ&oh=00_AfFU8atGCqtUf_UCdjHeOotN1wHN0qvVLuBBTk-GfagayA&oe=6807F6D9" />
+                </div>
+                <div class="image-wrapper">
+                    <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/474840747_595641939996626_6525905800416412081_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGqG4s6lwjEOLWpbGvHm_OPXYkz85wyAjddiTPznDICN-dW2CGAskW86Z_WOI7nshUc3YYm9taqFwdGXnwOiC-M&_nc_ohc=XLL_O3rF6eEQ7kNvwEOKFpt&_nc_oc=Adli7Xv807c5VgfYWX8l3dyzm8OsEwUIs46Xz6L1IVRw-ny4o5b5OLZ_M5x4VjVm450KDLBkq6dtiLidrGyZZ04f&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=qAs2M4RyaVMIH8ruTD429A&oh=00_AfHPV1eNAAU-YG_oCp6PCeB4jbHHMWN8KUuvaxmJy9U74A&oe=6807C8FE" />
+                     </div>
+                <div class="image-wrapper">
+                    <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/476590621_606019662292187_8880209931654313006_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG_dYw145GkJxYm2qfyy5I9Oid4FDP5PFI6J3gUM_k8Uu2tY2yLqbwZXPsasidtF5e6F15WpK0wosVM4RPyg_zl&_nc_ohc=kB7_kfN_asMQ7kNvwFUeFQx&_nc_oc=AdkmDEcfX3sn4Ll1nnfKryynSLrBg0dBwLS6ZtF5lZcemXH3hZyjbuhJVUxZHJdHrGfCQ7iE9-Uzzrdjn8mA4eoC&_nc_zt=23&_nc_ht=scontent.fdad1-2.fna&_nc_gid=Cz09JH_dqVET4SVt1nuROw&oh=00_AfH7I7iMcBDpxmaqrn8Sy7lrJg4DO19pVg6ZwgYBC0MSqg&oe=6807F4DC" />
+                     </div>
+                     <div class="image-wrapper">
+                      <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/481503640_615456684681818_3193145459577878007_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE_Xn_kSIxBQ_9UvVevxbTUiG69Qg9elLiIbr1CD16UuHPCoGADOZNGL_4NcdUdRBmmRESJtZeKlxrc3Tt-w6_f&_nc_ohc=qqUsDIGwVPgQ7kNvwELFRe5&_nc_oc=AdmzIFRD8lwL5APt7bFk05qgHcnlkDlL-cuJ8GHIuq474-N6zCgZe5QUSfeKu3vW67U2T6C0VBE6zqe2x7t680BV&_nc_zt=23&_nc_ht=scontent.fdad1-2.fna&_nc_gid=OfgSNzm0wrtyf0CGU1qilg&oh=00_AfE6IHyU51YalXjU8vK31pW1Ehfox7Jinya5dx4PsS8HDw&oe=6807E3C7" />
+                       </div>
+            </div>
+    
+            <div class="image-column">
+                <div class="image-wrapper">
+                    <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/475791661_600777269483093_8890950091371132894_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFqe4K13ZafdKOejjqdc6TvUII6DazZt11QgjoNrNm3XSkYyAMWtEDF5SUUSzr3Ag7e26uMglJ2y2MrzNOI9AUi&_nc_ohc=-aDJP6IbBGoQ7kNvwH48GRv&_nc_oc=AdklgRG8B27ZWrkoWtH71iLfvhtupLBagib27xe5lMk_y6CFJkvBwvtSHHJ3Q2-PT9k8pEfl7D2lhxTKe_jVVGbx&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=ZAPEyqID8dWcMJ2Bg9JKvA&oh=00_AfEc6DJbXEwW6HZa5jkL8szifLvLIfjPy6uut-ISyiHy-w&oe=6807000A" class="rounded-2xl shadow-md w-full" />
+                   </div>
+                <div class="image-wrapper">
+                    <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/474586645_594100910150729_4403044258074414673_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE9Lkhx3hTH_yWkovcnJzfsDmQdrbjCCpQOZB2tuMIKlPUMmPQ3WoVnGSROUzvytEbpqQVYxvPNfaSJ4R6NnsTR&_nc_ohc=x1FLgsnXNc4Q7kNvwG5SIC-&_nc_oc=AdnFQHb6XiHYJekW6x6SstkbC2GOEtSdBtjQDfkljeBGMxYFqDlt7BoIE7EZvotY-mpvcnTz5hxz-w1veNC6UjCM&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=j3-tORrzm6eBscQJ_kOhxg&oh=00_AfENti9RasXjxPBaOrQmS3IAmBgYxtG2dC3rIcUm_cBK4A&oe=6807F018" />
+          </div>
+                <div class="image-wrapper">
+                    <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/476793842_606019815625505_3188970617666714357_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHwdprE6tSpYGRBkwdQgZuK2kC3SkT0y9zaQLdKRPTL3BvQWaYMLmyNrTf7_T-uuBAmPvbx0502huOSeL6Z-qIB&_nc_ohc=HITsPonJy-kQ7kNvwH1ZB-t&_nc_oc=AdmWSi9RaYRdsiRk_L9BMTW3S4kJYqA_c-KTwW6JMSgGPMbeDF7734ZDUbvFJfmKcu5GTF3npFFcKoN-G6edgxna&_nc_zt=23&_nc_ht=scontent.fdad2-1.fna&_nc_gid=HqRIRdo45lnHYOoOaSUGQw&oh=00_AfFFMHWcL87hydkPDOX1e91sHaUQrYop33qLpDNL5_tjlA&oe=6807E08C" />
+                     </div>
+                     <div class="image-wrapper">
+                      <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/481079028_615456668015153_1495012240428455298_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG50vdqbt_qzz5zoVqHcirQJ2tWVlzMmLgna1ZWXMyYuG7w7ZeduovsVC-3YcNbkE3YJJnPtAhdT8uM8EFcFKP5&_nc_ohc=nYqJuoaup_YQ7kNvwEn5q-y&_nc_oc=AdlAamU1wP2zIxi13vRW_Tp9io2pUqMf3tEP-QyrMpEpBWcvJXVKym0xoDRqtlkiKRP9Q6WMRTOiVeFwU-aSDLC0&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=a5yTpnFmGhGeE0kiCFHAUg&oh=00_AfH1qXt6R2IDF2dpbh8rirkyHlmIfpVJzfbBOQ0gC_EHVQ&oe=6807D990" />
+                       </div>
+           </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto px-6 py-16">
+      <div class="text-center mb-10">
+          <h1 class="text-4xl font-bold mb-4">Những tấm hình trong những dịp đặc biệt</h1>
+      </div>
+
+      <div class="image-grid">
+          <div class="image-column">
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/469325598_560671066827047_7840095443237637800_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeH_tpnqRg1BLkBw1U_e5BjQ2zjwkiRCcUXbOPCSJEJxRdqHkqvl_nK-wy2f_bO-VBiGCOe8Ti8L0rrfCKYWQAYE&_nc_ohc=VNUC47vCLA0Q7kNvwHM2NCq&_nc_oc=AdnzRBPH8tvY2kluqrBgwl8-ljm0vMYA7kQcILLTWp8OZHBcfjWOESwpVyJDdUbbH5RRnYUWMOlFt0PRmE-UsdoR&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=9AodizmjqmbVget1q2Ig0Q&oh=00_AfHgwHpAUTXHfgGNo8L7Ootk-pWZH7qZUfiaX-Vcgyq6sg&oe=6807D17C"
+                      class="rounded-2xl shadow-md w-full" />
+                  <p class="image-caption">20/10</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/476631837_605377192356434_5420507296247563027_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGFFU-EbVXafS-NPU85DQX_0nxNFG_psn3SfE0Ub-myfeKVwGyZNlW-Ox2gge-TEsNJGSojx1J8mkz9hTjsaFOb&_nc_ohc=iNrpK72M6I0Q7kNvwExWGbX&_nc_oc=AdkaHIyyTEVzcbrzhR122colOw4sXQ5d_Dd8nE_MADAs_Yh_c3ClJGS-j-9MBya9BrAwTjuNyn9uFLb8ehYChMKk&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=j2GCI7YtbXoi9TYb-FKb_A&oh=00_AfFU5lE0fUI0G0uvMz7O93z5ttxQGn2-M1xRjC2-GS88AQ&oe=6807F391" />
+                  <p class="image-caption">19/11</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/475578180_600063262887827_7966439462964423523_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGHG38rrWgGsL4erRbDZS2zIbGMbKgyq_YhsYxsqDKr9l95yfKlMoLYdMwfjpvNsGm7M0Xd9xMDApmU3NjvGtQi&_nc_ohc=0oACTRhiI1oQ7kNvwHTI0-y&_nc_oc=Adm2ZifktcvgdtK8K1pkECIutlcB22Qb-t1CF97mWUEVnYrkJTP5Z4_EtKAGzRKqt1AL269aDTw6Br35xIUt0xR-&_nc_zt=23&_nc_ht=scontent.fdad2-1.fna&_nc_gid=mBuh5Jb_0obWLWm8ctd3kQ&oh=00_AfHwCfAdLc4APMo2wfKQGcLjk3uMF37OdY3AZr2RDIKNDg&oe=6807D08C" />
+                  <p class="image-caption">Sinh nhật cô</p>
+              </div>
+
+          </div>
+
+          <div class="image-column">
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/475962796_600774362816717_7997668954756148959_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFg28ADrezwxfwF5TR-tGo1KjwarVQuhDUqPBqtVC6ENR4CbHOPRJkCvfyBZ20Oz6HtpjdIBtUVfcB3NkSOGiuH&_nc_ohc=hnE6E9-vvGgQ7kNvwFEJYeg&_nc_oc=AdnyVyqXJf8OFQzBzSDq9ecAf2FPeAqbnu0JxBZ0c2oyF6sMLYXeVGpAGcRGRco49JDHYnpb_pPJlAasgi09-65q&_nc_zt=23&_nc_ht=scontent.fdad2-1.fna&_nc_gid=l3JoOq2Cst2r-WKGns7nrg&oh=00_AfEaSaUa952fabK_dpr--Ib-r2EfxlvN_87VUsr22oGUqg&oe=6807D3D1" />
+                  <p class="image-caption">Vẫn là 20/10 (năm khác)</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/476461153_605377372356416_4797051768441099758_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFSMWt4ND31fxeHDqXx9nybNlKRL5qVIzE2UpEvmpUjMevoRhoQrzbfDLqGzH97WkeiiCbUMg4k_CvXAp1Ky1iQ&_nc_ohc=PC8lx53PS-sQ7kNvwGelR9C&_nc_oc=AdnoM9-0aTAxzi8ew-i557DLVcnyq1Dc_pxlv8LMOfPbgHXqa5DNvO0LDcSoWm6SZOk5cs64qqg4gc7apGNx7ik9&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=_eNOX8-iubIsXe--Wg0Sbg&oh=00_AfGUz0ljPb_R5Q9qyMirAw46AvDmO0gHrpLdTolnUaTNJQ&oe=6807DC3B" />
+                  <p class="image-caption">Vẫn là 19/11 (năm khác)</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/491927422_705112268527724_2639040898589136749_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFmZPizM6OKzv0BdQIpsADaBuLKGfFGh9kG4soZ8UaH2R4KBhQ4vT7_c0BPvJp2HhLd2vGy6AGx-JAscEhrmBwA&_nc_ohc=KBanVK64QRUQ7kNvwFXwFpV&_nc_oc=AdkOVuUfnf90RN-xdBzP7tVQr1-V3luLWL-cBfIL-TSx25XZoaMr1k2mAyEAH7qAT5muEB1vOfnHk8ChFbFc6ehI&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=MeO4RratCiRbrZp3ryh8iA&oh=00_AfHl1rv0S1Cn_BcUqooq8DnDT9rDmOgq3uoDCuQvDO5b4w&oe=6807F896" />
+                  <p class="image-caption">Tân gia nhà lớp trưởng</p>
+              </div>
+
+         </div>
+      </div>
+  </section>
+
+  <section class="container mx-auto px-6 py-16">
+    <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold mb-4">Kỷ yếu </h1>
+    </div>
+
+    <div class="image-grid">
+        <div class="image-column">
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/485309635_635406989353454_259514421398437226_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGPHTLvWowIdGxZdIVNQcL4fidVyItNRuh-J1XIi01G6GP10Zev3zW5D43BPnLPT8jMWJOofBv0m7MLd6xdoWcl&_nc_ohc=5YUvSxQh-h4Q7kNvwG2oDpW&_nc_oc=Adl85kNHf-tAWPKFdna0agl4VXShJAY0vVy7metf_z4v8I_rxemfw_BA9pIAtUQ2-AsWuyZdmy03hvf0Y56_RqzV&_nc_zt=23&_nc_ht=scontent.fdad2-1.fna&_nc_gid=30Eg05hbKrICnfXQhy5IwQ&oh=00_AfF2nZ5OR__kf6hKPn2wcpCfKvoLFWv6bq57gBpb3x71ZQ&oe=6807E1B6"
+                    class="rounded-2xl shadow-md w-full" />
+                 </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/486079238_635415692685917_1465455059295062484_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGbLlm6kOLIOZIp6U3cPjTV--1GN7RHlfP77UY3tEeV8zU9s0gyIyxwuv-z93jQszQQWYK19a2A3baP5ZV9G6nz&_nc_ohc=cyjGGCdVSsMQ7kNvwFJxdne&_nc_oc=AdkNNW5p0D3AUs7UJycBnEQe4bL_xVLR6Nl64wolQ8JCpqlDkNVmbBeUUhbiqtRlyywCqUkrl2iGj46SjEFNZmYz&_nc_zt=23&_nc_ht=scontent.fdad2-1.fna&_nc_gid=vTKeFHOzygvAujgKQzy8Fw&oh=00_AfFnyUnJU5nfi9DQs694iqSXpW4biJs63REqMdj8tukaNQ&oe=6807F7C2" />
+                </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/485995044_635415686019251_5459168976740460801_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGnBydCymCw2vnPEVOueKSZiOuGPuH4mkmI64Y-4fiaScKYEmow6Zl0KR2EbgOV4Xc2vp2g0g8iVh9lGVQxDeoX&_nc_ohc=fM9FfT-JbQkQ7kNvwFWkZ9U&_nc_oc=AdnoTSQe7YOF4PG1_fUbRArQF4tA1kMWdkxex9kBADrm7bZD1yM9nrTYrZ6ld4XYcBJu2qb4hJB4nph29f59lv0N&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=xFyKxGHwZ5z0BDWhVWgpLQ&oh=00_AfEMUBxOmPa_RFFqXfdGo0gbwxMgMiVok8zRwerQoGgcIA&oe=6807CD2B" />
+                 </div>
+
+        </div>
+
+        <div class="image-column">
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/485601456_635415599352593_5968524170233495309_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHwWfv1-Y7hV6Im51oxzoFxdWRmyFnMwg51ZGbIWczCDkxuGpN4GuT390TG15CPD5vNCLx8LONvXSOzQuW-ZEj8&_nc_ohc=GXfrl9ghdegQ7kNvwEgNGwU&_nc_oc=AdnWnb0Ul9kGit2m3m-7yRe20JEI_fP-lRoRQNqlJcsmuKplolZ8E94seK-HkFJFLZehosqm9n85zboojydC9Psb&_nc_zt=23&_nc_ht=scontent.fdad1-2.fna&_nc_gid=zga0wupW4dBJYHUpvqbA9g&oh=00_AfGlyPhY9TRz3rhMTFRMIFSk7A4W5wAiuhwjlkMRSvFD3A&oe=6807FC00" />
+            </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/485707098_635415716019248_680404478335995386_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFz_gEmSk9rnxJhyZ-Rdu0h2zwKe4I5mrHbPAp7gjmasf8KxjVDBLG-CyI3kA2xZTf134KLC5onx-zOKYURIr89&_nc_ohc=BpOdLjqKvnoQ7kNvwGxfQ_N&_nc_oc=AdlVo4fQT4hZ6M0AV20CsBKtfV8llO13-mT1HKBleBC1Y7mj88uDbckwCslWqyXKa4MuexR26-QWFfEQt414H7Mk&_nc_zt=23&_nc_ht=scontent.fdad2-1.fna&_nc_gid=oEZSRcRnJ7jPWxOJZcpnyw&oh=00_AfGOI5y8ktqU0W0uU4Fk9NolB-wAEcMSizzT6j0M6kkHEQ&oe=6807E156" />
+                </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/485719490_635415709352582_7358265124735336373_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE2K2cRnyqebQ8x2f14jOj2q2f3plFG-AyrZ_emUUb4DKoRGFP9H9MsJlQ34Cl8cWAGeYgMA6gSCmAZHbp6pIZf&_nc_ohc=Ge4M47ci1P4Q7kNvwFMZ0Xz&_nc_oc=Adk-Dzby04z2Tqto4mJure_gaV-p3Qx08viw8O8Z45V2LXeaF_45EUH3djitye8f5G0PnM3SN1_u5oHs3MAaQhhM&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=0d4tn0NV1NUquDGY8Ajh5w&oh=00_AfEntT7KoWie3i5BuL2IX1Za9PI3-LqT0K9BspYM8LWJqw&oe=6807D75F" />
+                 </div>
+       </div>
+    </div>
+    </section>
+
+  <section class="container mx-auto px-6 py-16">
+    <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold mb-4">Cuối cùng là những tấm hình 'ngẫu hứng' của chúng mình~</h1>
+    </div>
+
+    <div class="image-grid">
+        <div class="image-column">
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/491431804_705100541862230_1922024617433460904_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFbRERBC584KMO_5CAoGNRJzny0VGTpWoDOfLRUZOlagAbTrCaTgJ20d0de6jdSSMlXSz9fe1i1-zLoZ5Rl5bYn&_nc_ohc=T7sLCDnASoMQ7kNvwG598dh&_nc_oc=AdlmoZQA0hARvB5QaCZoIbViVS4Ir5uza87evYj_29nRyosfu0ZMr9IiUXDDAr8_clgr0FWS8o7eQChKezM25quJ&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=ZXH8xL6d3-zVyUt1EW903Q&oh=00_AfFHGQ-FSmkNBbfnPFWGL7-9Qm4iLYA3ltO58oF4qGEq8g&oe=6807D88C"
+                    class="rounded-2xl shadow-md w-full" />
+                </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/480537286_616575167903303_5753140440697089225_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHppAa5FURcw-PWap2s0CKi-dgxcwRUIQb52DFzBFQhBlv0M70hb3p-MfwvPnVPT2lhe4toz23Z9Vhc_1P0kfnG&_nc_ohc=J4JfDn13CXoQ7kNvwF-Np3t&_nc_oc=AdmIdcUr_pz9VFoX6hac4Mh50zUEvynr_FsTMpYK8WZw_bR6aCmB4x8U4jQZ4cKrO4z2VXvwsd97EsEdEvCYwYwQ&_nc_zt=23&_nc_ht=scontent.fdad1-2.fna&_nc_gid=8mdq3I5CNlPW5-h7pzIaDw&oh=00_AfE7MwWbgyrdN9AuhY82LL8d_C0qHL0njeTG3KSTJjOJcg&oe=6807E440" />
+                </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/480214742_610644845163002_3606232827216133428_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeF0rqGmYYNZuCUqMxO1XypaMRXsusudTfMxFey6y51N8wEJGovzCcVw7riLhcrAyYoRNEueiid6LZ6damkWoGGA&_nc_ohc=XEviqzI6HmwQ7kNvwHul6xg&_nc_oc=AdndMwbdDr4N3GZ2yEeGl5D01QNHetBLQTbpW1usFLHpqi9OiVOF8qhU9jGgiG-iVQk1tsh-GFBd12HWN7kNPtsU&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=xHjUnDXxBeE-gh6VUCTERA&oh=00_AfHd7USozMUZ9FTqY9kJQIAMvzdeyPbU1VxuQpb9rHQZ3A&oe=6807FBEB" />
+                 </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/473031451_3899434366941834_8830076970901378893_n.jpg?stp=cp6_dst-jpg_s600x600_tt6&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEGQRXWQ7MpEX_4ICZkZ4yTBwwQGWON6PoHDBAZY43o-qY_6DefoPFFipXdyxOwaaaBuXGtI0u_oX9XAC0FRKhf&_nc_ohc=vfcJxXjVFsgQ7kNvwGDM9R3&_nc_oc=Adl42QM6lWJCq_u_rTPd7LtENslezvmKsfXWE6YTy_vJUiZQ23g9PNHWWppZLesxmcMQIv4MTQa52dKTl7q91hQ0&_nc_zt=23&_nc_ht=scontent.fdad1-1.fna&_nc_gid=E4nPAlw8WwF5QCIpQiOV3Q&oh=00_AfEEiqFHGxVpw9nKquUWmygQdwmG4rmR2zjM-3JPyuKQ-Q&oe=6807E014" />
+                </div>
+        </div>
+
+        <div class="image-column">
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/481456982_618604864367000_5592477629943895949_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeH1CjsSPqE11UT14xuBnEVwfdpXF3LHma592lcXcseZrh0dXkqnVPFRDQQBw8M9k8l1LM-S9T1N2MpFgRdVupeu&_nc_ohc=SNGupma4Y14Q7kNvwGC5KFn&_nc_oc=AdnQsGP1lkQ_o2HWpX1yX1XTy4NwIjJywiqSHp6gp1uN_8yZ9cnIS4yPhHBcS20_PZMSVFYsWHjoQd7PWfRLLSsu&_nc_zt=23&_nc_ht=scontent.fdad1-1.fna&_nc_gid=iA8XIjB2myGx0OB--0q2vw&oh=00_AfFcki51N2uyMtOBVz5jeEW-V9txzBdqis2zcWe7lp6Myg&oe=6807E448" />
+                </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/474269688_1150304600434445_7242782615225195912_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeE1rAYH5LbAhE7a1xNg7r1GmsfmfR8T376ax-Z9HxPfvoa3y4WhYymPnX-W-LCJJE84wGe6z9uFAjrfpIG2pF8P&_nc_ohc=oxFT2oxfYzwQ7kNvwGtBB6o&_nc_oc=AdmEc9bnn3SVG9T5rfm0o7EoJrtzUSVvqvmEe1P9_VPsG_rM8GC8UDYwafuj48f0Hiu7LFWCEWvvn4hDfZITmdll&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=QKcHVQJkGuZDUf7pox7JaQ&oh=00_AfF2Wr1n8iIMZt1tpifSmYb-UFs7ALUT_f5Y4m0sYgGFhQ&oe=6807D5CA" />
+                </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/491654302_705096728529278_5745457490649371010_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEGjo-8mLHyg8e7BRPjattptZcc4QRrKFC1lxzhBGsoUKxYnkoKkOeiBcWJm4x5EjD61vGANeqHVhWyzbyMf0ui&_nc_ohc=KzCSZmE07OoQ7kNvwHTtQVM&_nc_oc=Admp9LNZIvOyFI4692ibqxeJClmWqj6udFRWg84rxd0F6CyGVKYB_AIZFlk4smGqSr212b-n2OkVl2uOlUZx6Osq&_nc_zt=23&_nc_ht=scontent.fdad1-2.fna&_nc_gid=S6EFuO42Vjmc7RJgEoR12Q&oh=00_AfH4p841_8BfH63xKFiQEj_aHg4Uk3MqcVQmCHX9z3X7Xg&oe=6807DCCB" />
+                </div>
+            <div class="image-wrapper">
+              <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/491278600_705096461862638_397296332254204356_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFIJO-4nZsAa5oNYj2jit5LGG3z2kCVy1wYbfPaQJXLXGeKf40q1ldasEpsJ-kSIcAid0SOB2n2Yw0AQSPM7Izt&_nc_ohc=2y8cmQSCye4Q7kNvwH_4CzX&_nc_oc=Adl4Bj48Osas7Ut1fF61BKZTIDAe-2DHHaj2DN3UrLx6bW0tyP5WeBA57_rDtqgGgTVp5zkoG2h200dd5TFNjEdn&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=REzWjQSrA9Ajo2l7g7LGLw&oh=00_AfGV8mEvm9qLBSF8SMf9v_sJeS2jQZaffmMGBvkDcC3Kog&oe=6807E7DE" />
+              </div>
+       </div>
+    </div>
+    </section>
+    <section class="bg-[rgb(179,200,207)] py-16">
+      <div class="container mx-auto px-6 text-center">
+        <h2 class="text-3xl font-bold mb-8 text-black">Còn rất rất nhiều tấm ảnh nhỉ nhảnh của lớp nữa</h2>
+        <p class="text-black mb-8 text-xl">
+          Nếu bạn muốn xem thêm thì click đây nha~
+        </p>
+        <button
+          class="bg-white px-8 py-3 rounded-full hover:shadow-lg transition"
+        >
+          <a
+            href="https://drive.google.com/drive/folders/10r_lv2wH5H9W0GxtHGGp30RXP6RLlM7C"
+            >Thư viện ảnh</a
+          >
+        </button>
+      </div>
+    </section>
+ 
+
+    
+
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-bold text-xl mb-4">Vị Trí</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="https://c3phanboichau.daknong.edu.vn/"
+                  class="hover:text-[rgb(179,200,207)] transition"
+                  >Trường THPT Phan Bội Châu</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://cujut.daknong.gov.vn/"
+                  class="hover:text-[rgb(179,200,207)] transition"
+                  >Huyện Cư Jut</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://daknong.gov.vn/"
+                  class="hover:text-[rgb(179,200,207)] transition"
+                  >Tỉnh Đắk Nông</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-xl mb-4">Kết nối với chúng mình nha</h3>
+            <div class="flex space-x-4">
+              <ol>
+                <li>Email: 12a1digiuatroirucro@gmail.com</li>
+                <li>
+                  <a href="https://www.facebook.com/a1.k19luonvuituoi"
+                    >Facebook</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/12a1_digiuatroirucro/"
+                    >Instagram</a
+                  >
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@a1k19pbcmaichay">Tiktok</a>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const user = JSON.parse(localStorage.getItem('loggedInUser'));
+      const userSection = document.getElementById('userSection');
+      const userName = document.getElementById('userName');
+      const userAvatar = document.getElementById('userAvatar');
+    
+      if (user && userName && userAvatar && userSection) {
+        userName.textContent = user.fullName || user.email;
+        userAvatar.src = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+        userSection.classList.remove('hidden');
+        const authBtns = document.getElementById('authButtons');
+        if (authBtns) authBtns.classList.add('hidden');
+      } else {
+        window.location.href = "dangnhap.html";
+      }
+    
+      function handleLogout() {
+        localStorage.removeItem('loggedInUser');
+        window.location.href = "dangnhap.html";
+      }
+    </script>
+      <script type="text/javascript">
+        var totalCount = 3;
+        var num = Math.ceil(Math.random() * totalCount);
+        document.getElementById("images").src = 'images/' + "background" + num + '.png';
+    </script>
+  <script type="text/javascript">
+    var totalCount = 3;
+    var num = Math.ceil(Math.random() * totalCount);
+    document.getElementById("images").src = 'images/' + "background" + num + '.png';
+</script>
+<script src="./js/app.js"></script>
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+    window.OneSignal = window.OneSignal || [];
+    OneSignal.push(function () {
+        OneSignal.init({
+            appId: "2ce708ee-b01f-400d-9936-5f887626493d",
+        });
+    });
+</script>
+</body>
+</html>

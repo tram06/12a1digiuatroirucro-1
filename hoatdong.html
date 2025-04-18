@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hoạt động </title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* CSS tùy chỉnh */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .section-description {
+            font-size: 1.1rem;
+            color: #555;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .image-column {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .image-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+            box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+        }
+
+        .image-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .image-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+    <link id="favicon" rel="icon"
+        href="https://cdn.glitch.global/d06aa12c-e99e-4369-97e4-7a9bb58fd8b2/4b570c38-c487-4af3-bcbc-5b4804a69e51.image.png?v=1740298260328"
+        type="image/x-icon" />
+</head>
+
+<body class="font-[Montserrat] bg-[rgb(241,240,232)] ">
+    <header class="bg-[rgb(179,200,207)] sticky top-0 z-50 text-black">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="https://cdn.glitch.global/65d334ea-e4d5-4b17-9e20-0579fdf35806/fd45a0f5-591d-48af-ba0a-640b506174c6.image.png?v=1741180858240"
+                        class="h-12 w-auto" />
+                        <span class="ml-3 text-2xl font-bold " 
+                        ><a href="12a1digiuatroirucro.html" > 12A1 Đi giữa trời rực rỡ</a></span >
+                    </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                      <a href="hoatdong.html" class="hover:text-white">Hoạt động</a>
+                      <a href="hoctap.html" class="hover:text-white">Học tập</a>
+                      <a href="album.html" class="hover:text-white">Album</a>
+                      <a href="demnguoc.html" class="hover:text-white">Đếm ngược ngày thi</a>
+                    </div>
+                    <div id="userSection" class="hidden items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <img id="userAvatar" src="#" alt="User Avatar" class="w-8 h-8 rounded-full" />
+                            <span id="userName" class="text-white"></span>
+                        </div>
+                        <button onclick="handleLogout()"
+                            class="bg-red-500 text-white px-4 py-2 rounded-full hover:bg-red-600">
+                            Đăng xuất
+                        </button>
+                    </div>
+                </div>
+                <button class="md:hidden">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-16 6h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <section class="container mx-auto px-6 py-16">
+
+            <h1 class="text-5xl font-bold mb-6">Chào mừng đến với những hoạt động của lớp 12A1!</h1>
+            <p class="text-xl mb-8">
+Sau đây chúng mình cùng điểm qua những họa động tiêu biểu của lớp trong 3 năm vừa qua nhé~
+            </div>
+
+        </div>
+      </section>
+    <section class="container mx-auto px-6 py-16">
+      <div class="text-center mb-10">
+          <h1 class="text-4xl font-bold mb-4">Lớp 10 </h1>
+          <p class="text-lg text-gray-900">
+Năm học 2022-2023</p>
+      </div>
+
+      <div class="image-grid">
+          <div class="image-column">
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/474544294_592742940286526_2904248788123534345_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHAGuPAQ5jeAxVYAjJxJ-aAO5k_xUSxH6s7mT_FRLEfq3tfSiUGSDKaCFXeUcvFyUy-ePtsJDjN80AGL4C2PRD8&_nc_ohc=nD6QtJNyt-sQ7kNvwGplpUS&_nc_oc=Adkq-fBrOVIvrslcN3fZXU6pPbyKvJTmSWWsQBbRf7QyRe8pN2udfE7WipzQxVxHy6SkqzAnX69fRgir5hV2kfPY&_nc_zt=23&_nc_ht=scontent.fdad1-2.fna&_nc_gid=apCXA1nb_aZKgCg70vuNkw&oh=00_AfE6LtBm25pVFMpnqf6GOGPYHTfH0OAwvcickdAY0dXu9g&oe=6807C143"
+                      class="rounded-2xl shadow-md w-full" />
+                  <p class="image-caption">Cuộc thi xếp sách</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/469630474_562193776674776_6510914447100627256_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeG_Kk6dPaI9MEigH-OlB6z3Y4vJIU9M8DBji8khT0zwMJM1rob3h9_YmVX-qYiEyWii1NEwknsNujOjO1UJ_1Yk&_nc_ohc=5gxRhjfMcIQQ7kNvwGtI1mn&_nc_oc=Adl67zfSxD3lPHFEgal0VaX-uWkLrvBigDCgSxbx8dqvM1cPk-4yRPjwY3ddtlqWCofDZkfflfOocg93Dj7O1MML&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=g7Il7Mlo_Kw-5oizWpPa3g&oh=00_AfEOj8uVC7qJC95cld_WTfBXVtBeHMFXglon8pji2Ln7Zw&oe=6807D961" />
+                  <p class="image-caption">Tham gia diễn văn ghệ 20/11</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="
+
+" />
+                  <p class="image-caption">Olympic 23/3 năm học 2023-2024</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/475191559_636133188944091_161077599085541611_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGYrkn6WfYVq7leLA-AcGoiPqk84GaaaIM-qTzgZppog09DDjB6LAOZBYzV1laWcbFxoU2E_euJMJ0nfWdMeqUS&_nc_ohc=k6qqUUB7ZacQ7kNvwEalRH5&_nc_oc=AdmBStSKBDpG_U9M4S9OWbpXsrgNngnRmjGq-FC6_fJTWQZymjMQk433_qK9cXeRbjE-KwWLRm3uYDduMFo3vN_O&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=-PG-Al1LtTmQfTVk-wgsrw&oh=00_AfFqq06sWm6J0xjeX8ASUBQr0bc-8KERg3HO5xM9_lhJNw&oe=6807C364" />
+                  <p class="image-caption">Lễ ra quân chiến dịch "Hoa phượng đỏ"</p>
+              </div>
+          </div>
+
+          <div class="image-column">
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/474092764_589548790605941_4975438246189542572_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFIRSSNy_OSceivSA8u3M0cYlc68YEFzxNiVzrxgQXPE3EfTz9xBCRE7LQvxW8qz0JouL5WVQWychl0wgrigvuC&_nc_ohc=XK9YZAl03rIQ7kNvwHUuMwH&_nc_oc=Adln9eVu8chVQx4vdP8oYzdODUQpQU6BniDozUHf8fsdzFOIF2V5YN7z5M-oOAQa8565gEEAFXpjQRw82SU1CX-e&_nc_zt=23&_nc_ht=scontent.fdad2-1.fna&_nc_gid=O3AF5chPvSCl0wlLnzwJoQ&oh=00_AfGApAxYxny_916Qyl1GOI9-GXAe3fJ_XiUEybdFCopfyg&oe=6807DD5F" />
+                  <p class="image-caption">Cùng tổ chức chơi cờ vua</p>
+              </div>
+              <div class="image-wrapper">
+                  <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/474041141_592042487023238_602090477851931318_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeH1pcoW20pOtp9GtPvwx-pVCEh3aUl2JREISHdpSXYlEU25YlFdHLmnQt6lRDGbVT4dP0lVFoIDi1wcJXyPKS0q&_nc_ohc=i8bNf6MZYyEQ7kNvwGltXDx&_nc_oc=AdnOT_l9Yx9XIQ2v6kvnkaJQ28HEhlxB1XdquPfnds_fh4KZE8HRyZGr9sDKaqP-JOnexPYTOehVwnioBSPhZmhr&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=UZx-8olDZaq2Oy8-woLCag&oh=00_AfEEAOiujUlh1nc-6ChtTegd8uYdGepIjadHaRkJbfuidg&oe=6807D1F6" />
+                  <p class="image-caption">Giải cờ vua lớp tổ chức</p>
+              </div>
+              <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/474860771_594876936739793_5380591020089810261_n.jpg?stp=dst-jpg_s720x720_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEIsvATeN4EQwEFW6X5_jXx8HknxwzgrVHweSfHDOCtUVyZ5LRjmMniqnslfFoJMXPW6_iajjFaWhPD2LdKZr0G&_nc_ohc=EBa2PzCyf7EQ7kNvwGdZOcO&_nc_oc=AdlmtAbUN72Aw9hHxCz0HKaghbtyKbiFILhJF-fNYjFJZJS8dggcsk9S5P0hXaL1yhA4YQ5QtbcYxHoJbaERCe1h&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=wFlr8nCr9oBTPY1c1epDQA&oh=00_AfHQ9z7cV-ADNv8qIUljrxEJSmdOJuwNSwTM51S28Hd5Kg&oe=6807C128" />
+                <p class="image-caption">Tiếp sức mùa thi.</p>
+            </div>
+         </div>
+      </div>
+  </section>
+
+  <section class="container mx-auto px-6 py-16">
+    <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold mb-4">Lớp 11 </h1>
+        <p class="text-lg text-gray-700">
+Năm học 2023-2024</p>
+    </div>
+
+    <div class="image-grid">
+        <div class="image-column">
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/475165158_595665949994225_4942092259911974515_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE5dVV0cRmKf5FmeXpZYIhE53sGccyZS8XnewZxzJlLxd_VN14fnq7W5Up4crqiPPifMBgAq9dd6lP2_XUeF1oo&_nc_ohc=AEcuZSGpgHQQ7kNvwErk1Ua&_nc_oc=AdnqR-Kynrlwqvfi3-eOYrWz5ynsRMm_fkEWo-F-n9YdNolcVP6sKqpv_l5pPc9v1LFC6VSDdGpVzNWA3uWQ-x8d&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=JlADhv7UFvH9-UkYJ5Dn3w&oh=00_AfG8vUo4dJFCZFdMf3RHZTGUXQxZ5Oym3gw_bOvE0wg2pw&oe=6807ED1A"
+                    class="rounded-2xl shadow-md w-full" />
+                <p class="image-caption">Đại hội chi đoàn</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/480823425_652718493952227_5651538740602596766_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHUzIcgyo16qnf_5SnhCtPPfhYDhuhaVpN-FgOG6FpWk3E5Khx-lzJpWE1KsEC8vpHyzBane2d3DtwRbsAGA0lT&_nc_ohc=8aNuSOhPTIIQ7kNvwHWy1-8&_nc_oc=AdmZ_xcWlqLVSUMUrKct-Tq87yx9k3cRnH4nM8ylz5NOWQxMYYUUKxsFV5Lg7XRzWHJ_RHgnPtcWHy_tgJ6_w_Gi&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=TcMEe3IGT5O-JrK0enqwww&oh=00_AfFR3vIGXaZ6my3bDIhE3272EUUEqoPuNTI2UExRwrTNPQ&oe=6807D8E7" />
+                <p class="image-caption">Nhảy Semaphore</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/479865048_608151832078970_1181347782712139818_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHNOicgqpPeLomrj7xqhBvmWYEURND_vrNZgRRE0P--s51H_SGh1fjcwKzs7mWKWmHHQYuSrqBY6s7iL5fd3pA0&_nc_ohc=zAJqCkRgZ-EQ7kNvwEfsCKO&_nc_oc=AdlETxumEG40C3hm7C8lz7lHNg-Y7eM-GmcNYU3JuEcB1EZGD84TGqlYcKArMrfMm2_0yiU6xkETy9u5gMl2sBfZ&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=TF14PWbYWKiHPCV4R4fLwA&oh=00_AfEd2mRgbQ0HIyPcMdPlhLKnokKMuAjrKbWa70OvOYQAfg&oe=6807E86C" />
+                <p class="image-caption">Gặp nhau 'cuối kì'</p>
+            </div>
+        </div>
+
+        <div class="image-column">
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/480810141_648745371016206_8524067795286817605_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHN6CIN8pu_v0qOp8r5HZCoUaOu8bNV-NRRo67xs1X41ImSoNx_kgWRBvm6CAVHHGutEueG5zOAGHw5jeIgcra5&_nc_ohc=eWHqF9M1fSYQ7kNvwHCVDOg&_nc_oc=AdmstSt7OtTGoyaSvSTo9c27bSObVsAx_QkInAz8xN04UGpE4q3gm2z_xQifLEruXFPvlU33PPU3eiHk9ysOpVkH&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=XPfbZ4M0fNopFESRMmUNMw&oh=00_AfH7d559TT8AoSPKx0IsSUwiBrZqK-_OVeTNNLmnyogQ8w&oe=6807E0F3" />
+                <p class="image-caption">Ảnh chào mừng 20 năm thành lập tỉnh</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/481207311_650908930799850_2586280513318455152_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFAXLdlhUYhf31QSJDTUedgV_cv11A-2IxX9y_XUD7YjAjCOTaQIoP0ovTtji-vAM34CPfzy_2FI1nfQNSZsGue&_nc_ohc=KL3cQC0fvtgQ7kNvwEHbXzE&_nc_oc=AdnM8XmXql8ofsZmEcO-0uInQ0g0Sze6ExV_8TA7vSXHpiYMgGEO5Sh_wnOsE36Bgrdg50pdK7phTEh5yZts7BIu&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=bS8AWCEZYrVQ_YhawNncGg&oh=00_AfG360bKe_cciaT_n57UBA3Uhlrbnc_K9gPycgbrvk2rIw&oe=6807CC07" />
+                <p class="image-caption">Cuộc thi nấu ăn 26/3</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/480273714_612216081672545_6869771277275258518_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEv3UOzgOhHATpOFQ8L-s0CuBu5PFyp9WS4G7k8XKn1ZI2XiXz4PoYScgEorDxFaiGS_dqUDo1Z1-m99h9LurrQ&_nc_ohc=RrJCDmXnniMQ7kNvwEJsbwH&_nc_oc=AdksFU4y0TqbOyUDmOaiC1J6PLXhiMGkyXaWhCug0R_5Gii-_RvOgeJeRRsPh0bS68tPFgs9ysL9OoBD0qmp8Xz9&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=GJpMvuZ6q1fJuGGhsGwK9Q&oh=00_AfFGIIw3nvKQp8HeH7Ae8ik2MPsdGgQPM96o6WDhxMNaog&oe=6807EFEF" />
+                <p class="image-caption">Tiếp sức mùa thi</p>
+            </div>
+       </div>
+    </div>
+</section>
+
+<section class="container mx-auto px-6 py-16">
+    <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold mb-4">Lớp 12 </h1>
+        <p class="text-lg text-gray-700">
+Năm học 2024-2025</p>
+    </div>
+
+    <div class="image-grid">
+        <div class="image-column">
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/481075157_615436681350485_7298360936565961931_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFvQKJwCuOqW3iKd8PZ9UkOuR3xha5RYjK5HfGFrlFiMkiyEpkAuvJQUVJumxMCMWUiwuFXgFttw1SdXjls0sTC&_nc_ohc=NlN8V7tVfhUQ7kNvwH6m6p4&_nc_oc=AdmI2_bZN6QY2yYKxuJnJLOpTVzz1jQkDreI1Gei5awtR765Klk6RNoJ5zWyzTbAr6wADGnLRNufYLHR2rrzRpx2&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=CkL2DSvl7aLh8Pc4Tb1l3A&oh=00_AfHfY_fqTht0rW_jTUbcEhaYlBaRNmbLrG2ChjRJoEMHuQ&oe=6807DA27"
+                    class="rounded-2xl shadow-md w-full" />
+                <p class="image-caption">Đại hội chi đoàn mẫu</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/481063701_654198753804201_1047991125302502901_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=f727a1&_nc_eui2=AeEhduTMjTVdSDkAvt1w-uS7SA-zDCnbselID7MMKdux6eFej5y5Yc5LkBG6SseYIbgdseeamyacR5Neh_s5yXOj&_nc_ohc=W9J7eHXT8fsQ7kNvwEN1ANW&_nc_oc=Adnu-rVej7ROTFGiFEVFMikA0kOe-IvFH02w039wZsR20MDnQU0kmPGdS8d2FO0yazWp7YNlbopk8E2QQWiBzyz6&_nc_zt=23&_nc_ht=scontent.fdad2-1.fna&_nc_gid=rdQGYbQZvDVCP7Chq3Kyxg&oh=00_AfG7o8B5_0PX9IZs-8DQvkjQ9e9TFodC1ekpaTWx77EmVQ&oe=6807EB5E" />
+                <p class="image-caption">Tham gia ngoại khóa ngữ văn</p>
+            </div>
+    
+        </div>
+
+        <div class="image-column">
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-3.fna.fbcdn.net/v/t39.30808-6/491477186_705100531862231_424607301832324430_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE79bPruP0QrZcYUkxEM_E9jZHaZA5FnFiNkdpkDkWcWMnUk4wC-iYLn5a4YFnu5wxLGkZbH1ca2CCeSY7tPcOw&_nc_ohc=xXKZq3K-tD4Q7kNvwEpu7XM&_nc_oc=Adl13lcr8tKSSSgYKNI0MbvjQafKqZSCdZoYhVL5x-EEOegRQHx9QhXCJ5t-nQ9PRkHnGZbG0cNPtHhvszG-PrZW&_nc_zt=23&_nc_ht=scontent.fdad1-3.fna&_nc_gid=F_LNqP3P2Edpse2YeoeIsg&oh=00_AfFKm9xI_85tlyxL4r7kDXsod2HDNxnXySlj4Odx2_3Ojw&oe=6807F03C" />
+                <p class="image-caption">Tham gia cuộc thi an toàn pháp luật
+                </p>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-2.fna.fbcdn.net/v/t39.30808-6/491973406_705100638528887_7726509972995976869_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEXGMRxIlN62LiN_URF1egA8bpZjE2euV_xulmMTZ65XyNI3lQPgHq0SYqSssWxKcvUt1qdUuTaK8Q0Lbzzq16E&_nc_ohc=6h6UlJX1W30Q7kNvwEIhhAe&_nc_oc=Admz1GiTY9rybFUlTnULB9ccaGl_D0gQgeRCcQyOWB0LdYpsr2i1EiJpof34C96QBLOxpgRXn4iOwDIPfY2THxuX&_nc_zt=23&_nc_ht=scontent.fdad1-2.fna&_nc_gid=REA8xW9QTgM_lK3Re44wkg&oh=00_AfG8FaGsZHQ4s9-MjfutPnA3yMdy9Z1yD0X3ZVyCOeAAxg&oe=6807DD4C" />
+                <p class="image-caption">Hưởng ứng tuần lễ áo dài</p>
+            </div>
+            <div class="image-wrapper">
+                <img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/492188456_705096678529283_4872859211648275180_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeE7FovxFYG8mj3hfasPIlBwvKPr1Gz4BES8o-vUbPgEREaYRxD7Gam9Hp7cneYdxXlpca5q-JLjn1iLbJQ6efPq&_nc_ohc=iKq6RfJIKh4Q7kNvwE5cQms&_nc_oc=Adl6K3xpcFYqDwUACRyxeldf0poDFh163LlIdCcsdrxLEm0SIj0Oc4tVTn_DbjhZcYWcRbgu61nyHYwDUpzSolsy&_nc_zt=23&_nc_ht=scontent.fdad1-4.fna&_nc_gid=zKyhzKIImLO1Gl3_EZtm7A&oh=00_AfE3yzsyZBsCUDG9t7w6Ke5DNDIySTamjZ9fcNcmJaLIhA&oe=6807D602" />
+                <p class="image-caption">Gặp nhau 'cuối kì'</p>
+            </div>
+       </div>
+    </div>
+</section>
+
+   
+    <footer class="bg-gray-900 text-white py-12">
+                      <div class="container mx-auto px-6">
+                        <div class="grid md:grid-cols-3 gap-8">
+                          <div>
+                            <h3 class="font-bold text-xl mb-4">Vị Trí</h3>
+                            <ul class="space-y-2">
+                              <li>
+                                <a
+                                  href="https://c3phanboichau.daknong.edu.vn/"
+                                  class="hover:text-[rgb(179,200,207)] transition"
+                                  >Trường THPT Phan Bội Châu</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="https://cujut.daknong.gov.vn/"
+                                  class="hover:text-[rgb(179,200,207)] transition"
+                                  >Huyện Cư Jut</a
+                                >
+                              </li>
+                              <li>
+                                <a
+                                  href="https://daknong.gov.vn/"
+                                  class="hover:text-[rgb(179,200,207)] transition"
+                                  >Tỉnh Đắk Nông</a
+                                >
+                              </li>
+                            </ul>
+                          </div>
+                          <div>
+                            <h3 class="font-bold text-xl mb-4">Kết nối với chúng mình nha</h3>
+                            <div class="flex space-x-4">
+                              <ol>
+                                <li>Email: 12a1digiuatroirucro@gmail.com</li>
+                                <li>
+                                  <a href="https://www.facebook.com/a1.k19luonvuituoi"
+                                    >Facebook</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="https://www.instagram.com/12a1_digiuatroirucro/"
+                                    >Instagram</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="https://www.tiktok.com/@a1k19pbcmaichay">Tiktok</a>
+                                </li>
+                              </ol>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </footer>
+                    <script>
+                        const user = JSON.parse(localStorage.getItem('loggedInUser'));
+                        const userSection = document.getElementById('userSection');
+                        const userName = document.getElementById('userName');
+                        const userAvatar = document.getElementById('userAvatar');
+                      
+                        if (user && userName && userAvatar && userSection) {
+                          userName.textContent = user.fullName || user.email;
+                          userAvatar.src = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+                          userSection.classList.remove('hidden');
+                          const authBtns = document.getElementById('authButtons');
+                          if (authBtns) authBtns.classList.add('hidden');
+                        } else {
+                          window.location.href = "dangnhap.html";
+                        }
+                      
+                        function handleLogout() {
+                          localStorage.removeItem('loggedInUser');
+                          window.location.href = "dangnhap.html";
+                        }
+                      </script>
+                  </body>
+                  </html>             

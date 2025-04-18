@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đến ngược ngày thi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7f7f7; /* Nền xám nhạt */
+            margin: 0; /* Loại bỏ margin mặc định của body */
+        }
+        .header-bg {
+            background-color: white; /* Header màu trắng */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Thêm bóng đổ nhẹ */
+        }
+        .nav-link {
+            color: #333; /* Màu chữ menu tối hơn */
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #dc2626; /* Màu đỏ khi hover */
+        }
+        .hero-section {
+            background-color: white;
+            padding: 4rem 0; /* Giảm padding */
+        }
+        .hero-image {
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .hero-title {
+            color: #222;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .hero-subtitle {
+            color: #555;
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+        .countdown-section {
+            background-image: url('https://images.unsplash.com/photo-1503376780353-72602c7a589d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Thay thế bằng URL hình nền của bạn */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            position: relative; /* Cần thiết cho lớp phủ */
+        }
+        .countdown-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* Lớp phủ đen với độ trong suốt */
+            backdrop-filter: blur(5px); /* Hiệu ứng làm mờ nhẹ cho lớp phủ */
+        }
+        .countdown-content {
+            position: relative; /* Đưa nội dung lên trên lớp phủ */
+            z-index: 10;
+        }
+        .countdown-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.8); /* Nền trắng mờ cho item */
+            color: #333;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            min-width: 80px;
+        }
+        .countdown-value {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #dc2626;
+        }
+        .countdown-unit {
+            font-size: 0.9rem;
+        }
+        .cta-button {
+            background-color: #dc2626;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #c82020;
+        }
+        .motivation-section {
+            background-color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .motivation-box {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin: 0 auto 2rem auto;
+            max-width: 80%;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .motivation-quote {
+            font-style: italic;
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        .change-quote-button {
+            background-color: #4CAF50; /* Màu xanh lá cây */
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem; /* Bo tròn nút */
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        .change-quote-button:hover {
+            background-color: #45a049;
+        }
+        .footer-bg {
+            background-color: #333;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .footer-link {
+            color: #ddd;
+            transition: color 0.3s ease;
+        }
+        .footer-link:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-[Montserrat] bg-[rgb(241,240,232)] ">
+    <header class="bg-[rgb(179,200,207)] sticky top-0 z-50 text-black">
+        <nav class="container mx-auto px-6 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <img src="https://cdn.glitch.global/65d334ea-e4d5-4b17-9e20-0579fdf35806/fd45a0f5-591d-48af-ba0a-640b506174c6.image.png?v=1741180858240"
+                        class="h-12 w-auto" />
+                        <span class="ml-3 text-2xl font-bold " 
+                        ><a href="12a1digiuatroirucro.html" > 12A1 Đi giữa trời rực rỡ</a></span >
+                </div>
+                    <div class="hidden md:flex items-center space-x-8">
+                      <a href="hoatdong.html" class="hover:text-white">Hoạt động</a>
+                      <a href="hoctap.html" class="hover:text-white">Học tập</a>
+                      <a href="album.html" class="hover:text-white">Album</a>
+                      <a href="demnguoc.html" class="hover:text-white">Đếm ngược ngày thi</a>
+                    </div>
+                    <div id="userSection" class="hidden items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <img id="userAvatar" src="#" alt="User Avatar" class="w-8 h-8 rounded-full" />
+                            <span id="userName" class="text-white"></span>
+                        </div>
+                        <button onclick="handleLogout()" class="bg-red-500 text-white px-4 py-1 rounded-full text-sm hover:bg-red-600 transition">Đăng xuất</button>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <section class="countdown-section">
+        <div class="countdown-overlay"></div>
+        <div class="container mx-auto px-6 countdown-content">
+            <h2 class="countdown-title">Đếm ngược đến ngày thi tốt nghiệp</h2>
+            <div class="countdown-timer">
+                <div class="countdown-item">
+                    <span id="days" class="countdown-value">00</span>
+                    <span class="countdown-unit">Ngày</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours" class="countdown-value">00</span>
+                    <span class="countdown-unit">Giờ</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes" class="countdown-value">00</span>
+                    <span class="countdown-unit">Phút</span>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds" class="countdown-value">00</span>
+                    <span class="countdown-unit">Giây</span>
+                </div>
+            </div>
+            <p class="text-white text-center">Chúng ta sẽ cùng nhau vượt qua kỳ thi này!</p>
+        </div>
+    </section>
+
+    <section class="motivation-section">
+        <div class="container mx-auto px-6">
+            <div class="motivation-box">
+                <p id="motivation-quote" class="motivation-quote">
+                    Hành trình ngàn dặm bắt đầu từ một bước chân. Chúc các bạn luôn vững bước!
+                </p>
+                <button id="change-quote-btn" class="change-quote-button">Đổi câu nói</button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer class="footer-bg">
+        <div class="container mx-auto px-6 py-4 text-center">
+            <p>&copy; 2025 12A1 Đi giữa trời rực rỡ. All rights reserved.</p>
+            <p class="mt-2">Liên hệ: <a href="mailto:12a1digiuatroirucro@gmail.com" class="footer-link">12a1digiuatroirucro@gmail.com</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript cho đếm ngược (giữ nguyên)
+        function getTimeRemaining() {
+            const total = Date.parse('2025-06-26T08:00:00') - Date.parse(new Date());
+            const seconds = Math.floor((total / 1000) % 60);
+            const minutes = Math.floor((total / 1000 / 60) % 60);
+            const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+            const days = Math.floor(total / (1000 * 60 * 60 * 24));
+            return { total, days, hours, minutes, seconds };
+        }
+
+        function updateClock() {
+            const timeRemaining = getTimeRemaining();
+            document.getElementById('days').textContent = String(timeRemaining.days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(timeRemaining.hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(timeRemaining.minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(timeRemaining.seconds).padStart(2, '0');
+
+            if (timeRemaining.total <= 0) {
+                clearInterval(timeInterval);
+                document.querySelector('.countdown-title').textContent = 'Kỳ thi đã đến!';
+                document.querySelector('.countdown-timer').innerHTML = '<p class="text-lg text-white">Chúc các bạn thi thật tốt!</p>';
+            }
+        }
+
+        const timeInterval = setInterval(updateClock, 1000);
+
+        // JavaScript cho thay đổi câu nói
+        const quotes = [
+            "Thất bại không phải là vấp ngã mà là từ chối đứng lên.",
+            "Không có gì là không thể, chỉ là bạn chưa cố gắng hết mình.",
+            "Ngày hôm nay bạn làm những gì mà người khác không làm, ngày mai bạn sẽ có những gì mà người khác không có.",
+            "Đừng bao giờ từ bỏ ước mơ chỉ vì thời gian thực hiện nó quá lâu. Thời gian nào cũng sẽ trôi qua thôi.",
+            "Khó khăn chỉ là những thử thách nhỏ trên con đường dẫn đến thành công.",
+            // Thêm các câu nói truyền động lực khác vào đây
+        ];
+
+        const quoteElement = document.getElementById('motivation-quote');
+        const changeQuoteButton = document.getElementById('change-quote-btn');
+        let currentQuoteIndex = 0;
+
+        function changeQuote() {
+            currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+            quoteElement.textContent = quotes[currentQuoteIndex];
+        }
+
+        changeQuoteButton.addEventListener('click', changeQuote);
+    </script>
+    <script>
+        const user = JSON.parse(localStorage.getItem('loggedInUser'));
+        const userSection = document.getElementById('userSection');
+        const userName = document.getElementById('userName');
+        const userAvatar = document.getElementById('userAvatar');
+      
+        if (user && userName && userAvatar && userSection) {
+          userName.textContent = user.fullName || user.email;
+          userAvatar.src = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
+          userSection.classList.remove('hidden');
+          const authBtns = document.getElementById('authButtons');
+          if (authBtns) authBtns.classList.add('hidden');
+        } else {
+          window.location.href = "dangnhap.html";
+        }
+      
+        function handleLogout() {
+          localStorage.removeItem('loggedInUser');
+          window.location.href = "dangnhap.html";
+        }
+      </script>
+</body>
+</html>

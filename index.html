@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Góc nhỏ 12A1</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            position: relative; /* Cần thiết để định vị lớp phủ */
+            font-family: 'Montserrat', sans-serif;
+            background-color: rgb(68, 68, 68); /* Màu nền chính */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Đảm bảo body chiếm toàn bộ chiều cao viewport */
+            margin: 0; /* Loại bỏ margin mặc định của body */
+            color: white; /* Màu chữ trắng cho toàn trang */
+            align-items: center; /* Căn giữa theo chiều ngang cho các phần tử con */
+        }
+
+        body::before {
+            content: "";
+            position: fixed; /* Đảm bảo phủ toàn bộ viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-6/485309635_635406989353454_259514421398437226_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGPHTLvWowIdGxZdIVNQcL4fidVyItNRuh-J1XIi01G6GP10Zev3zW5D43BPnLPT8jMWJOofBv0m7MLd6xdoWcl&_nc_ohc=9FD65xsxsSAQ7kNvwFAOKRO&_nc_oc=AdlN9bvcNb8_IDUDUoaih5cZZYSw9YnnZktAXU6uBFeuLNcBQR9KDjWnSl-qMwfkl_NlrcJQPzpXroumvfZ_7ozt&_nc_zt=23&_nc_ht=scontent.fdad2-1.fna&_nc_gid=G6o8bTB-VdsESS-QQIn04Q&oh=00_AfHPryjDP8ooWzKBj2-NhzKwj05MXyuPkdnfmLeLUYeajg&oe=6805AF36'); /* Thay thế bằng URL hình ảnh của bạn */
+            background-size: cover;
+            background-repeat: no-repeat;
+            opacity: 0.3; /* Độ trong suốt cao hơn */
+            z-index: -1; /* Đặt lớp phủ phía sau nội dung */
+            background-color: rgba(0, 0, 0, 0.7); /* Lớp nền đen trong suốt */
+        }
+
+        .content-wrapper {
+            text-align: center;
+            padding: 20px; /* Giữ nguyên padding */
+            border-radius: 8px; /* Giữ nguyên bo tròn */
+            margin-bottom: 30px; /* Giữ nguyên margin bottom */
+            z-index: 1; /* Đảm bảo chữ và nút nằm trên lớp phủ */
+            max-width: 80%; /* Giữ nguyên kích thước vùng chữ */
+        }
+
+        .main-title {
+            font-size: 3rem; /* Giữ nguyên kích thước chữ */
+            font-weight: bold;
+            margin-top: 90px;
+            margin-bottom: 10px; /* Giữ nguyên margin bottom */
+        }
+
+        .sub-title {
+            font-size: 1.2rem; /* Giữ nguyên kích thước chữ */
+            font-style: italic;
+        }
+
+        .start-button-container {
+            margin-bottom: 40px; /* Khoảng cách giữa nút và footer */
+            z-index: 1; /* Đảm bảo nút nằm trên lớp phủ */
+        }
+
+        .start-button {
+            background-color: white;
+            color: black;
+            padding: 20px 60px; /* Nút to hơn */
+            border-radius: 9999px;
+            font-size: 1.5rem; /* Chữ trong nút to hơn một chút */
+            text-decoration: color(srgb rgb(106, 122, 139) );
+            transition: background-color 0.3s ease;
+        }
+
+        .start-button:hover {
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8); /* Màu nền footer đậm hơn */
+            color: white;
+            padding: 30px 0; /* Giữ nguyên padding footer */
+            text-align: center;
+            margin-top: auto; /* Đẩy footer xuống cuối trang */
+            width: 100%; /* Footer rộng hết trang */
+            z-index: 1; /* Đảm bảo footer nằm trên lớp phủ */
+            font-size: 0.9rem; /* Giữ nguyên kích thước chữ footer */
+        }
+
+        .footer-container {
+            max-width: 900px; /* Giữ nguyên max-width footer */
+            margin: 0 auto;
+            padding: 0 15px; /* Giữ nguyên padding container footer */
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Giữ nguyên kích thước cột */
+            gap: 20px; /* Giữ nguyên khoảng cách cột */
+            text-align: left;
+        }
+
+        .footer-heading {
+            font-size: 1.1rem; /* Giữ nguyên kích thước tiêu đề */
+            margin-bottom: 10px; /* Giữ nguyên margin heading */
+        }
+
+        .footer-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-size: 0.85rem; /* Giữ nguyên kích thước chữ link */
+        }
+
+        .footer-link:hover {
+            color: rgb(179, 200, 207);
+        }
+
+        .footer-social {
+            display: flex;
+            margin-top: 15px; /* Giữ nguyên margin top */
+        }
+    </style>
+    <link
+        id="favicon"
+        rel="icon"
+        href="https://cdn.glitch.global/d06aa12c-e99e-4369-97e4-7a9bb58fd8b2/4b570c38-c487-4af3-bcbc-5b4804a69e51.image.png?v=1740298260328"
+        type="image/x-icon"
+    />
+</head>
+<body>
+     <!-- Thanh Tiêu Đề -->
+     <header class="w-full bg-gray-800 text-white py-4">
+        <div class="max-w-7xl mx-auto flex justify-center">
+          <nav class="flex items-center space-x-8">
+            <a href="dangnhap.html" class="hover:text-white">Trang chủ</a>
+            <a href="dangnhap.html" class="hover:text-white">Hoạt động</a>
+            <a href="dangnhap.html" class="hover:text-white">Học tập</a>
+            <a href="dangnhap.html" class="hover:text-white">Đếm ngược</a>
+          </nav>
+        </div>
+     </header>
+    <div class="content-wrapper">
+        <h1 class="main-title">Chào mừng đến với 12A1</h1>
+        <p class="sub-title">Nơi lưu giữ ký ức cấp 3 của chúng tớ</p>
+    </div>
+    <div class="start-button-container">
+        <a href="dangnhap.html" class="start-button">Bắt đầu thôi!</a>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div>
+                    <h3 class="footer-heading">Vị Trí</h3>
+                    <ul class="footer-list">
+                        <li>
+                            <a
+                                href="https://c3phanboichau.daknong.edu.vn/"
+                                class="footer-link"
+                                >Trường THPT Phan Bội Châu</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://cujut.daknong.gov.vn/"
+                                class="footer-link"
+                                >Huyện Cư Jut</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="https://daknong.gov.vn/"
+                                class="footer-link"
+                                >Tỉnh Đắk Nông</a
+                            >
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="footer-heading">Kết nối với chúng mình nha</h3>
+                    <div>
+                        <ul class="footer-list">
+                            <li>Email: 12a1digiuatroirucro@gmail.com</li>
+                            <li>
+                                <a href="https://www.facebook.com/a1.k19luonvuituoi" class="footer-link">Facebook</a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/12a1_digiuatroirucro/" class="footer-link">Instagram</a>
+                            </li>
+                            <li>
+                                <a href="https://www.tiktok.com/@a1k19pbcmaichay" class="footer-link">Tiktok</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+               
+    </footer>
+</body>
+</html>
